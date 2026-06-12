@@ -59,11 +59,15 @@ This is what Velopack Flutter is doing by setting the following values in `flutt
 ## API
 
 | Function | Description                                                                                                                  |
-|----------|------------------------------------------------------------------------------------------------------------------------------|
-| `isUpdateAvailable(String url)` | Checks the specified URL for an update and returns a boolean.                                                                |
-| `updateAndRestart(String url)` | Checks for an update, downloads and applies it, then restarts the app.                                                       |
-| `updateAndExit(String url)` | Checks for an update, downloads and applies it, then exits the app.                                                          |
-| `waitExitThenUpdate(String url)` | Checks for an update, downloads it, and applies it after the app has been closed. Will close automatically after 60 seconds. |
+|----------|--------------------------------------------------------------|
+| `init_velopack(String url)` | Initializes Velopack with the update server URL.                                                      |
+| `is_update_available()` | Checks if an update is available.                                                                     |
+| `get_latest_update_info()` | Gets detailed information about the latest available update.                                          |
+| `current_version()` | Returns the current application version as a string.                                                  |
+| `check_and_download_updates_with_progress(StreamSink<int> progressSink)` | Checks for updates, downloads them, and streams progress (0-100) to the provided sink.                |
+| `update_and_restart()` | Applies downloaded updates and restarts the application.                                              |
+| `update_and_exit()` | Applies downloaded updates and exits the application.                                                 |
+| `wait_exit_then_update(bool silent, bool restart)` | Waits for the app to exit, then applies updates. If `restart` is true, the app will restart after applying updates. Use `silent` to suppress UI messages. |
 
 ## Packaging
 
